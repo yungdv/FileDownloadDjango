@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Файлы в {{ group.name }}{% endblock %}
+
+{% block content %}
+<header class="bg-primary text-white text-center py-5">
+    <h1>Файлы в {{ group.name }}</h1>
+</header>
+<main class="container mt-5">
+    <div class="row">
+        {% for file in files %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{{ file.file.url }}" class="card-link">{{ file.name }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{% url 'groups' group.section.id %}" class="btn btn-secondary mt-4">Назад к группам</a>
+</main>
+{% endblock %}

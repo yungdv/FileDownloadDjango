@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Разделы{% endblock %}
+
+{% block content %}
+<header class="bg-primary text-white text-center py-5">
+    <h1>Разделы</h1>
+</header>
+<main class="container mt-5">
+    <div class="row">
+        {% for section in sections %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{% url 'groups' section.id %}" class="card-link">{{ section.name }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
